@@ -1,0 +1,109 @@
+---
+import BorderCard from "@src/components/BorderCard.astro";
+import Card from "@src/components/Card.astro";
+import DarkModeSwitch from "@src/components/DarkModeSwitch.astro";
+import FlagTitle from "@src/components/FlagTitle.astro";
+import BaseLayout from "@src/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="انقلاب مردمی ایران">
+  <header class="mb-6 mt-8 flex justify-center items-center">
+    <h1 class="font-medium text-2xl sm:text-3xl">
+      <FlagTitle />
+    </h1>
+  </header>
+  <DarkModeSwitch class="absolute top-3 left-3" />
+  <main class="flex flex-col items-center max-w-screen-lg m-auto py-4 px-2 md:px-4 gap-4 lg:gap-10">
+    <BorderCard class="text-lg">
+      <p>
+        هدف اصلی افزایش قدرت مردم در برابر نظام حاکم است. حال چه نظامِ جمهوری‌اسلامی باشد، چه
+        شاهنشاهی، چه هر نظام حکومتی دیگری. خواست این است که قدرت مردم بیشتر باشد تا جایی که حکومت
+        مطیع مطلق مردم شود.
+      </p>
+      <p class="mt-3">
+        آیا جمهوری‌اسلامی مطیع مطلق مردم است یا حکومتی طاغوت و دیکتاتوری است؟
+        <a href="/under-construction">بیشتر بخوانید.</a>
+      </p>
+    </BorderCard>
+    <div class="w-full grid gap-2 grid-cols-1 md:grid-cols-2 lg:gap-4">
+      <Card
+        href="/under-construction"
+        title="آمار و گزارش"
+        body="آمار و گزارش‌های مشارکت و انگیزه‌ی مردم برای انقلاب."
+      />
+      <Card
+        href="/atlas"
+        title="اطلس گروه‌های مردمی"
+        body="با فعالین و گروه‌های تشکیل شده برای انقلاب مردمی آشنا شوید."
+      />
+    </div>
+    <a href="/countdown" class="hover:no-underline w-full p-1">
+      <div
+        class="mx-auto text-center w-full md:max-w-fit py-6 lg:py-8 px-4 lg:px-16 bg-flag-gold-lighter text-flag-gold-darker rounded-lg hover:shadow-lg hover:ring-4 hover:ring-flag-gold hover:ring-inset duration-100 dark:bg-flag-gold-darker dark:text-flag-gold-lighter"
+      >
+        <div class="text-2xl lg:text-4xl mb-8 lg:mb-12">مانده تا سالگرد مهسا امینی</div>
+        <ul dir="ltr">
+          <li>
+            <div id="days"></div>
+            <div>روز</div>
+          </li>
+          <li>
+            <div id="hours"></div>
+            <div>ساعت</div>
+          </li>
+          <li>
+            <div id="minutes"></div>
+            <div>دقیقه</div>
+          </li>
+          <li>
+            <div id="seconds"></div>
+            <div>ثانیه</div>
+          </li>
+        </ul>
+      </div>
+    </a>
+  </main>
+</BaseLayout>
+
+<style>
+  li {
+    @apply inline-block text-lg list-none px-4 lg:px-6;
+  }
+
+  li div:nth-child(1) {
+    @apply font-mono font-normal text-4xl lg:text-7xl;
+  }
+
+  li div:nth-child(2) {
+    @apply text-base lg:text-xl;
+  }
+</style>
+
+<script>
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
+
+  const countDownTo = new Date("2023/09/16").getTime();
+
+  const updateCountdown = () => {
+    const now = new Date().getTime();
+    const distance = countDownTo - now;
+
+    const days = Math.floor(distance / day);
+    document.getElementById("days")!.innerText = days.toString();
+
+    const hours = Math.floor((distance % day) / hour);
+    document.getElementById("hours")!.innerText = hours.toString().padStart(2, "0");
+
+    const minutes = Math.floor((distance % hour) / minute);
+    document.getElementById("minutes")!.innerText = minutes.toString().padStart(2, "0");
+
+    const seconds = Math.floor((distance % minute) / second);
+    document.getElementById("seconds")!.innerText = seconds.toString().padStart(2, "0");
+  };
+
+  updateCountdown();
+  setInterval(updateCountdown, 250);
+</script>

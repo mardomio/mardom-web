@@ -1,0 +1,33 @@
+---
+export interface Props {
+  title: string;
+  class?: string;
+}
+
+const { title, class: className } = Astro.props;
+
+import BaseLayout from "@src/layouts/BaseLayout.astro";
+import FlagTitle from "@src/components/FlagTitle.astro";
+import DarkModeSwitch from "@src/components/DarkModeSwitch.astro";
+---
+
+<BaseLayout title={title}>
+  <header
+    class="pb-2 mt-2 sm:mt-3 sm:pb-3 flex justify-center items-center relative border-b border-neutral-200 dark:border-neutral-800"
+  >
+    <a href="/" class="hover:no-underline">
+      <h2 class="font-medium text-xl">
+        <FlagTitle />
+      </h2>
+    </a>
+    <DarkModeSwitch class="absolute left-3" />
+  </header>
+  <main
+    class:list={[
+      "flex flex-col items-center max-w-screen-lg m-auto py-4 px-2 md:px-4 gap-4 lg:gap-10",
+      className,
+    ]}
+  >
+    <slot />
+  </main>
+</BaseLayout>

@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    /* Vazirmatn has height issues. Texts have more space above them than below them.
+       This makes consistent looking design very difficult to achieve. */
+    font-family: IRANSans, system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-neutral-50 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50;
+  }
+
+  a {
+    @apply text-flag-gold hover:underline underline-offset-8 duration-300;
+  }
+}
+
+@layer components {
+  .material-symbols-rounded {
+    font-family: "Material Symbols Rounded";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    user-select: none;
+    -moz-font-feature-settings: "liga";
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  /* On newer android and ios versions, the very bottom of the page is usually for 
+     system navigation using gestures. Use this padding to make sure elements stay
+     clickable, otherwise user might endup going to os homescreen when trying to click. */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+
+  /* Extra safe bottom padding. */
+  .pb-xsafe {
+    padding-bottom: calc(env(safe-area-inset-bottom, 20px) + 30px);
+  }
+
+  .bidi-plain {
+    unicode-bidi: plaintext;
+  }
+}
+
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 900;
+  src: url("/fonts/IRANSansWeb_Black.woff2");
+}
+
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: bold;
+  src: url("/fonts/IRANSansWeb_Bold.woff2");
+}
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/IRANSansWeb_Medium.woff2");
+}
+
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/IRANSansWeb_Light.woff2");
+}
+
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 200;
+  src: url("/fonts/IRANSansWeb_UltraLight.woff2");
+}
+
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/IRANSansWeb.woff2");
+}
+
+@font-face {
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/IRANSansWeb.woff2");
+}
+
+@font-face {
+  font-family: "Material Symbols Rounded";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/material-symbols-rounded-default.woff2") format("woff2");
+}

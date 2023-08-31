@@ -1,0 +1,31 @@
+---
+const { class: className } = Astro.props;
+---
+
+<div
+  id="dark-mode-switch"
+  class:list={["material-symbols-rounded cursor-pointer select-none", className]}
+>
+</div>
+
+<script>
+  const darkModeSwitch = document.getElementById("dark-mode-switch")!;
+
+  darkModeSwitch.innerHTML = document.documentElement.classList.contains("dark")
+    ? "light_mode"
+    : "dark_mode";
+
+  darkModeSwitch.addEventListener("click", () => {
+    const isDark = document.documentElement.classList.contains("dark");
+    if (isDark) {
+      localStorage.setItem("dark-theme", "false");
+      document.documentElement.classList.remove("dark");
+      darkModeSwitch.innerHTML = "dark_mode";
+    } else {
+      localStorage.setItem("dark-theme", "true");
+      document.documentElement.classList.add("dark");
+      darkModeSwitch.innerHTML = "light_mode";
+    }
+    window.dispatchEvent(new Event("dark-theme"));
+  });
+</script>

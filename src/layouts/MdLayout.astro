@@ -1,0 +1,47 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title}>
+  <header>
+    <div class="border-gray-200 border-b text-center py-2">
+      <a href="/" class="font-medium text-lg hover:no-underline">
+        <span class="text-flag-green">انقلاب</span>
+        <span class="text-flag-gold">مَردُمی</span>
+        <span class="text-flag-red">ایران</span>
+      </a>
+    </div>
+    <nav aria-label="Breadcrumb" class="breadcrumb px-4 mt-3 mb-1">
+      <ul class="mx-auto max-w-screen-sm">
+        <li><a href="/">خانه</a></li>
+        <li><a href="/atlas">{frontmatter.title}</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="pt-8 pb-4 px-4">
+    <article class="prose lg:prose-lg dark:prose-invert mx-auto max-w-screen-sm">
+      <slot />
+    </article>
+  </main>
+</BaseLayout>
+
+<style>
+  .breadcrumb ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+
+  .breadcrumb li:not(:last-child)::after {
+    content: "";
+    border: solid;
+    border-color: var(--color-flag-gold);
+    border-width: max(1.5px, 0.09375em) 0 0 max(1.5px, 0.09375em);
+    display: inline-block;
+    width: 0.4375em;
+    height: 0.4375em;
+    transform: rotate(-45deg);
+    margin: 0 0.4rem 0 0.65rem;
+  }
+</style>

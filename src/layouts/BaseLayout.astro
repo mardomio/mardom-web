@@ -1,0 +1,32 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+
+import "@src/styles/base.css";
+---
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <!-- Add theme class in head to avoid FOUC -->
+    <script is:inline>
+      const isDefaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const hasOverwrite = localStorage.getItem("dark-theme") !== null;
+      const isOverwriteDark = localStorage.getItem("dark-theme") === "true";
+      if (isOverwriteDark || (!hasOverwrite && isDefaultDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

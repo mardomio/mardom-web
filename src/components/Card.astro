@@ -1,0 +1,94 @@
+---
+export interface Props {
+  title: string;
+  body?: string;
+  href: string;
+}
+
+const { href, title, body } = Astro.props;
+---
+
+<li class="day link-card">
+  <a href={href}>
+    <h2>
+      {title}
+      <span>&larr;</span>
+    </h2>
+    {body && <p>{body}</p>}
+    <slot />
+  </a>
+</li>
+
+<style>
+  .link-card {
+    --bg-color: #fff;
+    --fg-color1: #111;
+    --fg-color2: #444;
+    --accent: var(--color-flag-gold);
+    --accent-gradient: linear-gradient(
+      45deg,
+      var(--color-flag-red),
+      var(--color-flag-gold) 20%,
+      var(--color-flag-green) 40%,
+      white 60%
+    );
+
+    list-style: none;
+    display: flex;
+    padding: 0.25rem;
+    background-color: var(--bg-color);
+    background-image: none;
+    background-size: 400%;
+    border-radius: 0.6rem;
+    background-position: 100%;
+    transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    @apply border border-solid border-flag-gold/50;
+  }
+
+  :global(.dark) .link-card {
+    --bg-color: var(--color-neutral-900);
+    --fg-color1: #fff;
+    --fg-color2: #ccc;
+    --accent: var(--color-flag-gold-lighter);
+    --accent-gradient: linear-gradient(
+      45deg,
+      var(--color-flag-red),
+      var(--color-flag-gold) 20%,
+      var(--color-flag-green) 40%,
+      black 60%
+    );
+  }
+
+  .link-card > a {
+    width: 100%;
+    text-decoration: none;
+    line-height: 1.4;
+    padding: 1rem 1.3rem;
+    border-radius: 0.35rem;
+    color: var(--fg-color1);
+    background-color: var(--bg-color);
+    opacity: 0.8;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 500;
+    transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    color: var(--fg-color2);
+  }
+
+  .link-card:is(:hover, :focus-within) {
+    background-position: 0;
+    background-image: var(--accent-gradient);
+  }
+
+  .link-card:is(:hover, :focus-within) h2 {
+    color: var(--accent);
+  }
+</style>

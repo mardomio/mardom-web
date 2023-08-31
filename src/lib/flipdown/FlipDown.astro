@@ -1,0 +1,23 @@
+---
+export interface Props {
+  date: string;
+}
+
+const { date } = Astro.props;
+const uts = new Date(date).getTime() / 1000;
+---
+
+<div id={`flipdown-${uts}`} class="flipdown"></div>
+
+<script>
+  import { FlipDown } from "./flipdown";
+
+  const flipdowns = document.querySelectorAll(".flipdown");
+
+  flipdowns.forEach((f) => {
+    const uts = parseInt(f.id.substring(9));
+    new FlipDown(uts, f.id, { headings: ["روز", "ساعت", "دقیقه", "ثانیه"] }).start().ifEnded(() => {
+      console.log("Today is the day.");
+    });
+  });
+</script>

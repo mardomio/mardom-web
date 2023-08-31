@@ -1,0 +1,20 @@
+---
+import PageLayout from "@src/layouts/PageLayout.astro";
+import FlipDown from "@src/lib/flipdown/FlipDown.astro";
+---
+
+<PageLayout title="روزشمار سالگرد مهسا امینی">
+  <div class="flex flex-col h-[calc(100vh-6rem)] justify-center pt-4 px-4 sm:pb-2">
+    <div class="flex flex-col items-center gap-6 my-auto">
+      <h1 class="font-medium text-xl sm:text-3xl">مانده تا سالگرد مهسا امینی</h1>
+      <FlipDown date="2023/09/16" />
+    </div>
+    <div class="text-center mt-20">
+      <a href="/app">
+        اپلیکیشن «انقلاب مردمی ایران» رو دانلود کن و با بقیه در ساخت یک ایران عالی هماهنگ شو.
+        <br />
+        برای دانلود همینجا کلیک کن.
+      </a>
+    </div>
+  </div>
+</PageLayout>
