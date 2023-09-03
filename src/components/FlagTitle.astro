@@ -1,3 +1,83 @@
-<span class="text-flag-green">انقلاب</span>
-<span class="text-flag-gold">مَردُمی</span>
-<span class="text-flag-red">ایران</span>
+<span id="flag-words" class="cursor-pointer">
+  <span id="flag-green-word" class="neon-text neon-text-green">انقلاب</span>
+  <span id="flag-gold-word" class="neon-text neon-text-gold">مَردُمی</span>
+  <span id="flag-red-word" class="neon-text neon-text-red">ایران</span>
+</span>
+
+<style>
+  .neon-text-green {
+    --text-color: rgb(var(--color-flag-green));
+    --neon-color: #74ce30;
+  }
+
+  .neon-text-gold {
+    --text-color: rgb(var(--color-flag-gold));
+    --neon-color: rgb(var(--color-flag-gold));
+  }
+
+  .neon-text-red {
+    --text-color: rgb(var(--color-flag-red));
+    --neon-color: rgb(var(--color-flag-red));
+  }
+
+  .neon-text {
+    color: var(--text-color);
+  }
+
+  .neon-text:hover {
+    filter: brightness(75%);
+  }
+
+  :global(.dark) .neon-text:hover {
+    filter: brightness(160%);
+  }
+
+  :global(.dark) .neon-text-red:hover {
+    --neon-color: rgb(160, 10, 10);
+    --text-color: rgb(160, 10, 10);
+  }
+
+  :global(.dark) .neon-text:hover {
+    animation: flicker 1.5s infinite alternate;
+  }
+
+  @keyframes flicker {
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+      text-shadow: 0 0 4px var(--text-color), 0 0 11px var(--text-color), 0 0 19px var(--text-color),
+        0 0 40px var(--neon-color), 0 0 80px var(--neon-color), 0 0 90px var(--neon-color),
+        0 0 100px var(--neon-color), 0 0 150px var(--neon-color);
+    }
+
+    20%,
+    24%,
+    55% {
+      text-shadow: none;
+    }
+  }
+</style>
+
+<script>
+  const originalPrimaryColor = document.documentElement.style.getPropertyValue("--color-primary");
+
+  document.getElementById("flag-green-word")?.addEventListener("mouseenter", () => {
+    document.documentElement.style.setProperty("--color-primary", "var(--color-flag-green)");
+  });
+
+  document.getElementById("flag-gold-word")?.addEventListener("mouseenter", () => {
+    document.documentElement.style.setProperty("--color-primary", "var(--color-flag-gold)");
+  });
+
+  document.getElementById("flag-red-word")?.addEventListener("mouseenter", () => {
+    document.documentElement.style.setProperty("--color-primary", "var(--color-flag-red)");
+  });
+
+  document.getElementById("flag-words")?.addEventListener("mouseleave", () => {
+    document.documentElement.style.setProperty("--color-primary", originalPrimaryColor);
+  });
+</script>

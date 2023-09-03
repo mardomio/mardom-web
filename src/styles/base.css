@@ -3,6 +3,22 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-flag-green: 24 163 0;
+    --color-flag-gold: 214 171 21;
+    --color-flag-red: 235 64 52;
+
+    --color-primary: 179 140 9;
+    --color-primary-hc: 110 85 5; /* high contrast */
+    --color-primary-lc: 255 225 60; /* low contrast */
+  }
+
+  :root[class~="dark"] {
+    --color-primary: 204 163 22;
+    --color-primary-hc: 255 204 0;
+    --color-primary-lc: 92 69 4;
+  }
+
   html,
   body {
     /* Vazirmatn has height issues. Texts have more space above them than below them.
@@ -15,7 +31,7 @@
   }
 
   a {
-    @apply text-flag-gold hover:underline underline-offset-8 duration-300;
+    @apply text-primary hover:underline underline-offset-8 duration-300;
   }
 }
 

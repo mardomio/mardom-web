@@ -21,14 +21,14 @@ module.exports = {
     },
     extend: {
       fontFamily: "IRANSans, system-ui, sans-serif",
-      colors: (theme) => {
-        return {
-          "flag-green": "#18a300",
-          "flag-gold": "#c4a12d",
-          "flag-gold-lighter": "#ebb810",
-          "flag-gold-darker": "#4f3d02",
-          "flag-red": "#eb4034",
-        };
+      colors: {
+        "flag-green": "rgb(var(--color-flag-green) / <alpha-value>)",
+        "flag-gold": "rgb(var(--color-flag-gold) / <alpha-value>)",
+        "flag-red": "rgb(var(--color-flag-red) / <alpha-value>)",
+
+        primary: "rgb(var(--color-primary) / <alpha-value>)",
+        "primary-hc": "rgb(var(--color-primary-hc) / <alpha-value>)",
+        "primary-lc": "rgb(var(--color-primary-lc) / <alpha-value>)",
       },
     },
   },
