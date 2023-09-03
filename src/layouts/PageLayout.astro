@@ -13,7 +13,7 @@ import DarkModeSwitch from "@src/components/DarkModeSwitch.astro";
 
 <BaseLayout title={title}>
   <header
-    class="flex justify-center items-center border-b border-neutral-200 dark:border-neutral-800 fixed left-0 right-0 top-0 bg-neutral-50 dark:bg-neutral-950 h-[42px] sm:h-[48px]"
+    class="flex justify-center items-center border-b border-neutral-200 dark:border-neutral-800 fixed left-0 right-0 top-0 z-10 bg-neutral-50 dark:bg-neutral-950 h-[42px] sm:h-[48px]"
   >
     <a href="/" class="hover:no-underline">
       <h2 class="font-medium text-lg sm:text-xl">
@@ -24,7 +24,7 @@ import DarkModeSwitch from "@src/components/DarkModeSwitch.astro";
   </header>
   <main
     class:list={[
-      "mt-[42px] sm:mt-[48px] flex flex-col max-w-screen-lg m-auto py-4 px-4 min-h-[calc(100vh-42px)] sm:min-h-[calc(100vh-48px)]",
+      "mt-[42px] sm:mt-[48px] flex flex-col max-w-screen-md m-auto py-4 px-4 min-h-[calc(100vh-42px)] sm:min-h-[calc(100vh-48px)]",
       className,
     ]}
   >
