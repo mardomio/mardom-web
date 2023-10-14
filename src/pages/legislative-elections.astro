@@ -1,0 +1,61 @@
+---
+import PageLayout from "@src/layouts/PageLayout.astro";
+import FlipDown from "@src/lib/flipdown/FlipDown.astro";
+---
+
+<PageLayout title="انتخابات مجلس - دیگر سکوت بس است">
+  <div class="flex flex-col items-center gap-4 mt-3">
+    <h1 class="font-medium text-2xl sm:text-3xl">مانده تا انتخابات مجلس</h1>
+    <FlipDown date="2024/03/01" />
+  </div>
+  <img src="/elections-poster.png" class="my-20" />
+
+  <div class="font-medium mb-4 text-3xl sm:text-4xl">دیگر سکوت بس است.</div>
+  <p>با ما همراه شوید تا در روز انتخابات کاری بیشتر از فقط رأی ندادن انجام دهیم.</p>
+
+  <div class="text-8xl text-primary mt-12 mb-4">۱.</div>
+  <div class="text-xl sm:text-2xl font-medium mb-4">برای تاثیرپذیری باید یکپارچه عمل کنیم.</div>
+  <p>
+    <a href="/app">اپلیکیشن مردم</a> شما را از تمام برنامه‌ریزی‌ها آگاه خواهد کرد تا بتوانید هماهنگ
+    با سایر مردم عمل کنید. قرار است چه کار انجام دهیم، نقش شما چیست، هدف چیست، چگونه نیروی سرکوب را
+    دور بزنیم، چه هماهنگی‌هایی انجام شده، و غیره.
+  </p>
+
+  <div class="text-8xl text-primary mt-12 mb-4" style="direction: ltr;">۲.</div>
+  <div class="text-xl sm:text-2xl font-medium mb-4">برای پیروزی باید از همین الآن اقدام کنیم.</div>
+  <p>
+    تا روز انتخابات هنوز چند ماهی مونده. ولی هر بسیج مردمی از همان شروع نیاز به عضوگیری، حضور غیاب،
+    و فعالیت‌های تمرینی دارد. تصور کنید ارتش یک کشور به کشور دیگری بدون حتی یک بار رژه رفتن حمله
+    کند! خب مشخص است شکست خواهد خورد.
+  </p>
+  <p class="mt-2">
+    <a href="/app">اپلیکیشن مردم</a> به طور مرتب آمادگی شما برای انقلاب را می‌سنجد. برای انجام
+    هماهنگی‌های لازم و برنامه‌ریزی دقیق باید بدونیم چند نفر فقط تماشاچی هستند و چند نفر واقعا اقدام
+    می‌کنند.
+  </p>
+
+  <div class="text-8xl text-primary mt-12 mb-4">۳.</div>
+  <div class="text-xl sm:text-2xl font-medium mb-4">قدرت مردم در تعداد است.</div>
+  <p>وقتی کم باشیم، صدامون در برابر صدای حکومت شنیده نخواهد شد.</p>
+  <p class="mt-2">
+    سرمایه‌گذاران، متخصصان، سیاست‌مداران، و حتی ۹۹ درصد خود مردم منتظر هستند تا یک ساختار اتحادی
+    میان مردم ایجاد شود. هر چه تعداد اعضای فعال در <a href="/app">اپلیکیشن مردم</a> بیشتر باشد،
+    راحت‌تر می‌توانیم آن‌ها را راضی کنیم تا از حکومت فاصله بگیرند و به مردم بپیوندند.
+  </p>
+</PageLayout>
+
+<style>
+  /* Remove these when days are 2 digits */
+  :global(.flipdown) {
+    width: 570px;
+  }
+  @media (max-width: 550px) {
+    :global(.flipdown) {
+      width: 345px;
+    }
+  }
+
+  p {
+    @apply text-lg sm:text-xl;
+  }
+</style>

@@ -38,11 +38,11 @@ import BaseLayout from "@src/layouts/BaseLayout.astro";
       />
       <Card href="/app" title="اپلیکیشن مردم" body="یک اپلیکیشن مخصوص انقلاب مردمی ایران." />
     </div>
-    <a href="/countdown" class="hover:no-underline w-full p-1">
+    <a href="/legislative-elections" class="hover:no-underline w-full p-1">
       <div
         class="mx-auto text-center w-full md:max-w-fit py-6 lg:py-8 px-4 lg:px-16 bg-primary-lc text-primary-hc rounded-lg hover:shadow-lg hover:ring-4 hover:ring-primary hover:ring-inset duration-100"
       >
-        <div class="text-2xl lg:text-4xl mb-8 lg:mb-12">مانده تا سالگرد مهسا امینی</div>
+        <div class="text-2xl lg:text-4xl mb-8 lg:mb-12">مانده تا انتخابات مجلس</div>
         <ul dir="ltr">
           <li>
             <div id="days"></div>
@@ -86,7 +86,7 @@ import BaseLayout from "@src/layouts/BaseLayout.astro";
   const hour = minute * 60;
   const day = hour * 24;
 
-  const countDownTo = new Date("2023/09/16").getTime();
+  const countDownTo = new Date("2024/03/01").getTime();
 
   const updateCountdown = () => {
     const now = new Date().getTime();

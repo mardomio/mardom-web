@@ -153,6 +153,7 @@ class FlipDown {
       // Theme
       theme: opt.hasOwnProperty("theme") ? opt.theme : "dark",
       headings,
+      reverse: opt.reverse,
     };
   }
 
@@ -268,7 +269,14 @@ class FlipDown {
     this.now = this._getTime();
 
     // Between now and epoch
-    var diff = this.epoch - this.now <= 0 ? 0 : this.epoch - this.now;
+    let diff = this.epoch - this.now;
+    if (diff < 0) {
+      if (this.opts.reverse) {
+        diff = this.now - this.epoch;
+      } else {
+        diff = 0;
+      }
+    }
 
     // Days remaining
     this.clockValues.d = Math.floor(diff / 86400);

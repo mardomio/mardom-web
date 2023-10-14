@@ -1,23 +1,27 @@
 ---
 export interface Props {
   date: string;
+  reverse?: boolean;
 }
 
-const { date } = Astro.props;
+const { date, reverse } = Astro.props;
 const uts = new Date(date).getTime() / 1000;
 ---
 
-<div id={`flipdown-${uts}`} class="flipdown"></div>
+<div id={`flipdown-${uts}`} class="flipdown" data-reverse={reverse?.toString()}></div>
 
 <script>
   import { FlipDown } from "./flipdown";
 
-  const flipdowns = document.querySelectorAll(".flipdown");
+  const flipdowns = document.querySelectorAll<HTMLDivElement>(".flipdown");
 
   flipdowns.forEach((f) => {
     const uts = parseInt(f.id.substring(9));
-    new FlipDown(uts, f.id, { headings: ["روز", "ساعت", "دقیقه", "ثانیه"] }).start().ifEnded(() => {
-      console.log("Today is the day.");
-    });
+    new FlipDown(uts, f.id, {
+      headings: ["روز", "ساعت", "دقیقه", "ثانیه"],
+      reverse: f.dataset.reverse === "true",
+    })
+      .start()
+      .ifEnded(() => {});
   });
 </script>
