@@ -1,15 +1,33 @@
 ---
 import BorderCard from "@src/components/BorderCard.astro";
-import SubpageLayout from "@src/layouts/SubpageLayout.astro";
+import PageLayout from "@src/layouts/PageLayout.astro";
 
 type AtlasItem = {
   title: string;
   description?: string | string[];
   location: string;
   websiteLink?: string;
+  member?: boolean;
 };
 
 const atlasItems: AtlasItem[] = [
+  {
+    title: "TCF e. V. - Transnational Community Federation e. V.",
+    location: "Transnational, Germany",
+    websiteLink: "https://transcf.org",
+    member: true,
+    description: [
+      "تعداد تقریبی اعضا: 200",
+      "فدراسیون جامعه فراملی e.V. (TCF) یک آزمایشگاه نوآوری مدنی غیر انتفاعی و غیردولتی است. با رویکرد میان رشته ای و اعتقاد به قدرت اقلیت ها، تغییرات مثبتی را در جوامع خود در سراسر جهان ایجاد می کنیم. ما در زمینه‌های مختلف از جمله ارتقای آموزش، سیستم‌های دموکراتیک و حاشیه‌زدایی فعال هستیم.",
+    ],
+  },
+  {
+    title: "theplatform.no",
+    location: "Norway",
+    websiteLink: "https://theplatform.no",
+    member: true,
+    description: ["گروه فعال در نروژ با تمرکز بر نقض‌های حقوق بشر توسط جمهوری اسلامی"],
+  },
   {
     title: "WAIS - We are Iranian Students",
     description:
@@ -44,15 +62,6 @@ const atlasItems: AtlasItem[] = [
     websiteLink: "https://wearemahsaamini.com/",
   },
   {
-    title: "TCF e. V. - Transnational Community Federation e. V.",
-    location: "Transnational, Germany",
-    websiteLink: "https://transcf.org",
-    description: [
-      "تعداد تقریبی اعضا: 200",
-      "فدراسیون جامعه فراملی e.V. (TCF) یک آزمایشگاه نوآوری مدنی غیر انتفاعی و غیردولتی است. با رویکرد میان رشته ای و اعتقاد به قدرت اقلیت ها، تغییرات مثبتی را در جوامع خود در سراسر جهان ایجاد می کنیم. ما در زمینه‌های مختلف از جمله ارتقای آموزش، سیستم‌های دموکراتیک و حاشیه‌زدایی فعال هستیم.",
-    ],
-  },
-  {
     title: "AUSIRAN - Australian United Solidarity for Iran",
     location: "Australia",
     websiteLink: "https://www.ausiran.org/",
@@ -67,9 +76,9 @@ const atlasItems: AtlasItem[] = [
 ];
 ---
 
-<SubpageLayout title="اطلس گروه‌های مردمی">
+<PageLayout title="اطلس گروه‌های مردمی">
   <div class="flex flex-col max-w-screen-sm mx-auto gap-3">
-    <h1 class="mb-4 ms-2 lg:ms-0 text-2xl">اطلس گروه‌های مردمی</h1>
+    <h1 class="ms-2 lg:ms-0 text-2xl">اطلس گروه‌های مردمی</h1>
     <label class="w-full flex gap-2">
       جست‌و‌جو:
       <input
@@ -96,7 +105,16 @@ const atlasItems: AtlasItem[] = [
             {desc.map((x) => (
               <p class="mt-2">{x}</p>
             ))}
-            <div class="block mt-4">
+            {item.member && (
+              <a
+                href="/coordination-council"
+                class="text-flag-green block mt-3"
+                title="حداقل یک نفر از این گروه در شورای هماهنگی عضو شده است."
+              >
+                ✔ عضو شورای هماهنگی
+              </a>
+            )}
+            <div class="block mt-3">
               <p class="float-left">{item.location}</p>
               {item.websiteLink && (
                 <a target="_blank" href={item.websiteLink}>
@@ -109,7 +127,7 @@ const atlasItems: AtlasItem[] = [
       })
     }
   </div>
-</SubpageLayout>
+</PageLayout>
 
 <script>
   const searchInput = document.querySelector('id="search-input"');

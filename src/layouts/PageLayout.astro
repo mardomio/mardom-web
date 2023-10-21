@@ -9,6 +9,7 @@ const { title, class: className } = Astro.props;
 import BaseLayout from "@src/layouts/BaseLayout.astro";
 import FlagTitle from "@src/components/FlagTitle.astro";
 import DarkModeSwitch from "@src/components/DarkModeSwitch.astro";
+import { twMerge } from "tailwind-merge";
 ---
 
 <BaseLayout title={title}>
@@ -23,10 +24,10 @@ import DarkModeSwitch from "@src/components/DarkModeSwitch.astro";
     <DarkModeSwitch class="absolute left-3" />
   </header>
   <main
-    class:list={[
-      "mt-[42px] sm:mt-[48px] flex flex-col max-w-screen-md m-auto py-4 px-4 min-h-[calc(100vh-42px)] sm:min-h-[calc(100vh-48px)]",
+    class={twMerge(
+      "flex flex-col max-w-screen-md m-auto py-4 px-4 min-h-[calc(100vh-var(--header-height))] mt-[var(--header-height)]",
       className,
-    ]}
+    )}
   >
     <slot />
   </main>

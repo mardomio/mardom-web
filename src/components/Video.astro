@@ -1,0 +1,99 @@
+---
+import { twMerge } from "tailwind-merge";
+export interface Props {
+  src: string;
+  cover?: boolean;
+  class?: string;
+}
+
+const { src, cover, class: className } = Astro.props;
+---
+
+<video
+  src={src}
+  class={twMerge(
+    "simple-video w-full h-full",
+    cover && "object-cover sm:object-contain",
+    className,
+  )}
+  loop
+  muted
+  autoplay
+>
+</video>
+
+<script>
+  const videos = document.querySelectorAll<HTMLVideoElement>("video.simple-video");
+
+  // Play pause videos based on whether they are visible
+  let observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target as HTMLVideoElement;
+        video.muted = muted;
+        video.dataset.isIntersecting = `${entry.isIntersecting}`;
+        if (entry.isIntersecting) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      });
+    },
+    { threshold: 0.7, rootMargin: "-42px 0px 0px 0px" }, // this percentage of video must be visible
+  );
+  videos.forEach((video) => {
+    observer.observe(video);
+  });
+
+  // Pause videos while holding them
+  // Toggle sound of all videos when any of them is clicked
+  let muted = true;
+  videos.forEach((v) => {
+    let muteWindowEnded = false;
+    let touchMoved = false;
+
+    const hold = () => {
+      touchMoved = false;
+      v.pause();
+      muteWindowEnded = false;
+      setTimeout(() => (muteWindowEnded = true), 200);
+    };
+
+    const release = (ev: Event) => {
+      if (!touchMoved) {
+        if (ev.type.includes("touch")) {
+          ev.preventDefault();
+        }
+        if (!muteWindowEnded) {
+          muted = !muted;
+          v.muted = muted;
+        }
+      }
+      if (v.dataset.isIntersecting === "true") {
+        v.play();
+      }
+    };
+
+    v.addEventListener("mousedown", hold);
+    v.addEventListener("touchstart", hold);
+    v.addEventListener("mouseup", release);
+    v.addEventListener("touchend", release);
+    v.addEventListener("touchmove", () => (touchMoved = true));
+  });
+
+  // Disable context menu
+  videos.forEach((v) => {
+    v.oncontextmenu = function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      return false;
+    };
+  });
+</script>
+
+<style>
+  .shadow-filter {
+    filter: drop-shadow(6px 10px 4px rgb(0 0 0 / 0.6));
+  }
+</style>

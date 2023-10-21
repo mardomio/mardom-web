@@ -1,0 +1,404 @@
+---
+import Scrolldown from "@src/components/Scrolldown.astro";
+import Video from "@src/components/Video.astro";
+import PageLayout from "@src/layouts/PageLayout.astro";
+---
+
+<PageLayout title="فراخوان" class="p-0">
+  <div class="slider">
+    <div class="slide slide-full">
+      <div class="px-5 pt-5 text-center">
+        <div>تا حالا فکر کردی اگر متحد بشیم چی میشه؟</div>
+        <div>با یه پلن درست حسابی البته.</div>
+      </div>
+      <Video src="/video/nemo-plan.mp4" />
+      <div class="relative pb-2 sm:pb-0">
+        <div class="px-5 pb-4 text-center opacity-80">بیشتر در پایین</div>
+        <Scrolldown />
+      </div>
+    </div>
+
+    <div class="slide">
+      <div class="mt-auto sm:mt-0"></div>
+      <div>
+        برو
+        <a href="/app">اپلیکیشن مردم</a>
+         رو نصب کن و روی دکمه‌ی
+        <span class="text-flag-green">«آماده‌ی مشارکت هستم»</span>
+         بزن.
+      </div>
+      <div>بیشتر بخون تا ببینی چجوری این کار به اتحاد کمک می‌کنه.</div>
+      <div class="flex items-center self-center mt-auto sm:mt-20">
+        <a href="https://play.google.com/store/apps/details?id=io.mardom">
+          <img alt="Get it on Google Play" src="/google-play-badge.png" width="250" />
+        </a>
+        <a href="https://github.com/mardomio/mardom-android/releases/latest">
+          <img alt="Download APK" src="/apk-badge.svg" width="250" />
+        </a>
+      </div>
+      <div class="text-sm opacity-60">
+        اگر فقط آیفون داری، ادامه رو نگاه کن تا با استراتژی آشنا بشی، اگر خواستی به دوستات که
+        اندروید دارن معرفی کن. هر چی بیشتر نسخه‌ی اندروید استفاده بشه، زودتر برای آیفون هم توسعه
+        می‌دیم.
+      </div>
+    </div>
+
+    <div class="slide slide-full">
+      <Video src="/video/app-action-ready.webm" />
+    </div>
+
+    <div class="slide">
+      <div>
+        فک کن یه کلیدِ شمارنده وجود داره که روش نوشته «انقلاب» و هر بار که یه نفر فشارش بده داخل، یه
+        دونه به عدد شمارنده‌ اضافه بشه.
+      </div>
+      <div>خودت دوست داری بعد از یک ماه این کلیدِ شمارنده چه عددی رو نشون بده؟</div>
+      <div class="flex flex-col gap-4 justify-center items-center mt-4">
+        <button class="btn-option" id="btn-more-better">صد میلیون یا هر چی بیشتر بهتر</button>
+        <button class="btn-option" id="btn-less-better">صفر یا هر چی کمتر بهتر</button>
+        <div id="counter-response" class="mt-4 font-medium h-0 text-center"></div>
+      </div>
+    </div>
+
+    <div class="slide slide-full">
+      <div class="flex flex-col max-h-[600px] text-center justify-between gap-4">
+        <div class="p-6">کره‌ی شمالی قدرت نظامی خودش رو به رخ کشورهای خارجی کشید.</div>
+        <Video src="/video/military-parade.mp4" />
+        <div class="p-6">ولی از اون مهم‌تر، نشون دادن قدرت خودشون به خودشون بود.</div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div>
+        رژه‌ی کره شمالی باعث نمی‌شه اونا کره‌ی جنوبی رو فتح کنن. ولی حس خودشون رو نسبت به خودشون
+        بهبود می‌ده.
+      </div>
+      <div>
+        و اعلام آمادگی هم باعث نمی‌شه انقلاب بشه، ولی ما انقلابی‌های دو آتیشه باید دست به کار بشیم
+        تا انگیزه و امید به انقلاب رو هم برای خودمون و هم برای گروه ساکت بالا ببریم.
+      </div>
+    </div>
+
+    <div class="slide slide-full">
+      <Video src="/video/park-segregation.mp4" cover />
+    </div>
+
+    <div class="slide slide-full">
+      <div class="flex flex-col max-h-[600px] text-center justify-between gap-4">
+        <div class="p-6">
+          <div>اختلاف بین این دو ویدئو خیلی زیاد نیست.</div>
+          <div>ولی الان جو جامعه سکوته، چون کسی نمی‌دونه چی کار کنه.</div>
+        </div>
+        <Video src="/video/students-tearing-down.mp4" />
+        <div class="p-6">
+          فقط کافیه ما انقلابی‌های دو آتیشه یه کاری رو به طور متحد شروع کنیم، جو سریع تغییر خواهد
+          کرد و بقیه هم همراه می‌شن.
+        </div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div>قراره دورهم جمع بشیم،</div>
+      <div>برنامه‌ریزی کنیم و یه کار خفن در یه زمان مشخص انجام بدیم.</div>
+      <div>برای اولین بار، یه اقدام متحد که توسط خود مردم سازماندهی شده باشه.</div>
+    </div>
+
+    <div class="slide slide-full">
+      <Video src="/video/water-atm.mp4" cover />
+    </div>
+
+    <div class="slide">
+      <div>شما آمادگی خودتون رو برای مشارکت اعلام می‌کنید.</div>
+      <div>
+        ما افراد متخصص و تاثیرگذار رو به
+        <a href="/coordination-council">شورای هماهنگی</a>
+         دعوت می‌کنیم و برنامه می‌چینیم.
+      </div>
+      <div>
+        وقتی هر دو شرط «تعداد بالا» و «برنامه‌ی خوب» برقرار شد، اپلیکیشن به شما اطلاع‌رسانی می‌کنه.
+      </div>
+    </div>
+
+    <div class="slide slide-full">
+      <div class="flex flex-col max-h-[850px] text-center justify-between gap-4">
+        <div class="p-6">چند ماه دیگه انتخابات مجلس هست، فقط رأی ندادن، یعنی سکوت و بی‌تفاوتی.</div>
+        <Video src="/video/majlis.mp4" />
+        <div class="p-6">باید کاری بیشتر از فقط رأی ندادن انجام بدیم.</div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div>تو 10 سال آینده، دوست داری زندگیت کدوم باشه؟</div>
+      <div class="flex flex-col gap-4 items-start mt-4">
+        <button class="btn-option" id="btn-live-iran-bad">زندگی و سازش با جمهوری اسلامی</button>
+        <button class="btn-option" id="btn-live-iran-good">زندگی تو ایران با آزادی</button>
+        <button class="btn-option" id="btn-live-abroad">زندگی تو خارج</button>
+        <div id="five-year-wish-response" class="mt-4 font-medium h-0"></div>
+      </div>
+    </div>
+
+    <div class="slide slide-full">
+      <div class="flex flex-col max-h-[850px] text-center justify-between gap-4">
+        <div class="p-6">این کسی بود که رد صلاحیت نشد. 😅</div>
+        <Video src="/video/president.mp4" />
+        <div class="p-6">انگاری هر کسی که صلاحیت داره، رد می‌شه. 🤣</div>
+      </div>
+    </div>
+
+    <div class="slide">
+      <div>تنبلی نکن، بهونه نیار، دست به کار شو. فقط ده دقیقه طول می‌کشه.</div>
+      <div>
+        <a href="/app">اپلیکیشن مردم</a>
+         رو نصب کن و روی دکمه‌ی
+        <span class="text-flag-green">«آماده‌ی مشارکت هستم»</span>
+         بزن.
+      </div>
+      <div class="mt-auto sm:mt-20"></div>
+      <div class="counter text-5xl text-center font-mono"></div>
+      <div class="text-center opacity-60 text-sm -mt-3">تصور کن، بدونی این‌همه همراه داری</div>
+      <div class="flex items-center self-center mt-auto sm:mt-20">
+        <a href="https://play.google.com/store/apps/details?id=io.mardom">
+          <img alt="Get it on Google Play" src="/google-play-badge.png" width="250" />
+        </a>
+        <a href="https://github.com/mardomio/mardom-android/releases/latest">
+          <img alt="Download APK" src="/apk-badge.svg" width="250" />
+        </a>
+      </div>
+      <div class="text-sm opacity-60">
+        اگر فقط آیفون داری، به دوستات که اندروید دارن معرفی کن. هر چی بیشتر نسخه‌ی اندروید استفاده
+        بشه، زودتر برای آیفون هم توسعه می‌دیم.
+      </div>
+    </div>
+  </div>
+</PageLayout>
+
+<script>
+  import confetti from "canvas-confetti";
+
+  // App height is like 100vh but mobile minus address
+  const appHeight = () =>
+    document.documentElement.style.setProperty("--app-height", `${window.innerHeight}px`);
+  window.addEventListener("resize", appHeight);
+  appHeight();
+  document.querySelector<HTMLDivElement>(".slider")!.scrollTop = 0;
+
+  // Start counter animation when in view
+  let confettiSetup = false;
+  let shouldConfetti = false;
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      shouldConfetti = entry.isIntersecting;
+      if (entry.isIntersecting && !confettiSetup) {
+        confettiSetup = true;
+        entry.target.classList.add("counter-anim");
+        entry.target.addEventListener("animationend", () => {
+          if (!shouldConfetti) return;
+          const end = Date.now() + 15 * 1000;
+          (function frame() {
+            confetti({
+              particleCount: 2,
+              angle: 60,
+              spread: 55,
+              origin: { x: 0 },
+              colors: ["#da0000", "#ccc"],
+            });
+            confetti({
+              particleCount: 2,
+              angle: 120,
+              spread: 55,
+              origin: { x: 1 },
+              colors: ["#239f40", "#ccc"],
+            });
+            if (Date.now() < end) {
+              requestAnimationFrame(frame);
+            }
+          })();
+        });
+      }
+    });
+  });
+  document.querySelectorAll(".counter").forEach((el) => {
+    obs.observe(el);
+  });
+
+  // How many do you like to click the button?
+  const btnMoreBetter = document.getElementById("btn-more-better") as HTMLButtonElement;
+  const btnLessBetter = document.getElementById("btn-less-better") as HTMLButtonElement;
+  const divCounterResponse = document.getElementById("counter-response") as HTMLDivElement;
+  btnMoreBetter.addEventListener("click", () => {
+    btnMoreBetter.classList.add("!border-flag-green");
+    btnLessBetter.classList.remove("!border-flag-red");
+    divCounterResponse.classList.add("text-flag-green");
+    divCounterResponse.classList.remove("text-flag-red");
+    divCounterResponse.innerText = "پس خودت هم دست به کار شو";
+  });
+  btnLessBetter.addEventListener("click", () => {
+    btnMoreBetter.classList.remove("!border-flag-green");
+    btnLessBetter.classList.add("!border-flag-red");
+    divCounterResponse.classList.remove("text-flag-green");
+    divCounterResponse.classList.add("text-flag-red");
+    divCounterResponse.innerText = "هیچ وقت صفر نمی‌شه، چون حداقل ما خودمون فشارش می‌دیم.";
+  });
+
+  // 5 year wish button?
+  const btnLiveIranBad = document.getElementById("btn-live-iran-bad") as HTMLButtonElement;
+  const btnLiveIranGood = document.getElementById("btn-live-iran-good") as HTMLButtonElement;
+  const btnLiveAbroad = document.getElementById("btn-live-abroad") as HTMLButtonElement;
+  const divLiveResponse = document.getElementById("five-year-wish-response") as HTMLDivElement;
+  let liveResponses: string[] = [];
+  let liveResponseNumber = 0;
+  let liveResponseInterval = 0;
+  function nextLiveResponse(reset: boolean = false) {
+    if (reset) {
+      liveResponseNumber = 0;
+      clearInterval(liveResponseInterval);
+      liveResponseInterval = setInterval(() => nextLiveResponse(false), 7000);
+    }
+    if (liveResponses.length === 0) {
+      divLiveResponse.innerText = "";
+      return;
+    }
+    divLiveResponse.innerText = liveResponses[liveResponseNumber % liveResponses.length];
+    liveResponseNumber++;
+  }
+  liveResponseInterval = setInterval(() => nextLiveResponse(), 7000);
+  btnLiveIranBad.addEventListener("click", () => {
+    btnLiveIranBad.classList.add("!border-flag-red");
+    btnLiveIranGood.classList.remove("!border-flag-green");
+    btnLiveAbroad.classList.remove("!border-flag-green");
+    liveResponses = [
+      "دلار 500 هزار تومنی؟ پراید 2 میلیاردی؟",
+      "وقتی آب حتی از این هم کمتر بشه، جمهوری دیکتاتوری صد در صد به فکرت خواهد بود. 😉",
+      "همه‌ی ایرانی‌های کاربلد رفتن خارج و باید با طالبان از نو شروع کنی.",
+      "به نظرت دکتر خوب دیگه پیدا می‌شه؟",
+      "احتمالا اینترنت دیگه واقعا برای همیشه قطع بشه. سلام کره‌ی شمالی. 👋",
+      "اگه تو ایتا یه حرف بد به خامنه‌ای بزنی، امتیاز اجتماعیت میاد پایین و دیگه نمی‌تونی مترو سوار بشی.",
+    ];
+    nextLiveResponse(true);
+  });
+  btnLiveIranGood.addEventListener("click", () => {
+    btnLiveIranBad.classList.remove("!border-flag-red");
+    btnLiveIranGood.classList.add("!border-flag-green");
+    btnLiveAbroad.classList.remove("!border-flag-green");
+    liveResponses = [
+      "پس باید دست به کار بشی و آمادگی مشارکت خودت رو برای انقلاب اعلام کنی.",
+      "فک کن، اینترنت آزاد. 🤩",
+      "یه عالمه توریست میاد، درآمد دلاری!",
+      "برنامه‌هات رو بچین برای سفرهای خارجی. ✈️",
+    ];
+    nextLiveResponse(true);
+  });
+  btnLiveAbroad.addEventListener("click", () => {
+    btnLiveIranBad.classList.remove("!border-flag-red");
+    btnLiveIranGood.classList.remove("!border-flag-green");
+    btnLiveAbroad.classList.add("!border-flag-green");
+    liveResponses = [
+      "انتخاب بدی نیست.",
+      "ولی هر جای دنیا باشی، تو رو ایرانی حساب می‌کنن و پاسپورت جمهوری اسلامی داری.",
+      "ولی با فقط هفته‌ای چند دقیقه وقت می‌تونی اینو تغییر بدی.",
+      "و اصلا آسیبی به خارج رفتن وارد نمی‌کنه، بلکه بهترش می‌کنه.",
+      "تصور کن ایران انقلاب بشه.",
+      "همه اونجا می‌خوان بیان باهات حرف بزنن.",
+      "راحت‌تر دوست (پسر/دختر) پیدا می‌کنی.",
+      "راحت‌تر کار پیدا می‌کنی.",
+      "و خیلی چیزای دیگه.",
+    ];
+    nextLiveResponse(true);
+  });
+</script>
+
+<style>
+  .slider {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: calc(var(--app-height) - var(--header-height));
+  }
+
+  .slide {
+    height: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    @apply flex flex-col justify-center gap-5 p-6 overflow-hidden text-[18px] sm:text-[22px];
+  }
+
+  .slide-full {
+    @apply p-0 sm:p-6;
+  }
+
+  /* Make body scrollable on desktop */
+  @media (min-width: 700px) {
+    .slider {
+      height: auto;
+      overflow: hidden;
+      scroll-snap-type: none;
+      display: contents;
+    }
+
+    html {
+      scroll-snap-type: y proximity;
+      scroll-padding-top: var(--header-height);
+    }
+
+    .slide {
+      height: calc(var(--app-height) - var(--header-height));
+    }
+  }
+
+  /* Counter */
+  @property --num {
+    syntax: "<integer>";
+    initial-value: 0;
+    inherits: false;
+  }
+  .counter {
+    --num: 100000000;
+    counter-reset: num var(--num);
+  }
+
+  .counter::after {
+    --num: 100000000;
+    content: counter(num);
+  }
+
+  .counter-anim {
+    animation: counter 40s forwards linear;
+  }
+
+  @keyframes counter {
+    0% {
+      --num: 0;
+    }
+    1% {
+      --num: 1;
+    }
+    2% {
+      --num: 2;
+    }
+    4% {
+      --num: 5;
+    }
+    7% {
+      --num: 10;
+      animation-timing-function: cubic-bezier(0.5, 0.2, 1, 1);
+    }
+    15% {
+      --num: 50;
+      animation-timing-function: cubic-bezier(0.5, 0.2, 1, 1);
+    }
+    30% {
+      --num: 1000;
+      animation-timing-function: cubic-bezier(1, 0.2, 1, 1);
+    }
+    60% {
+      --num: 1000000;
+      animation-timing-function: cubic-bezier(1, 0.2, 1, 1);
+    }
+    100% {
+      --num: 100000000;
+    }
+  }
+
+  .btn-option {
+    @apply px-4 py-1 rounded-md border-4 border-neutral-200 hover:border-neutral-400 dark:border-neutral-700 dark:hover:border-neutral-500;
+  }
+</style>

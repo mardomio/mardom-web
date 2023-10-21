@@ -1,0 +1,32 @@
+---
+export interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class:list={["section", className]}></div>
+
+<style>
+  .section {
+    animation: bounce 1.5s ease infinite;
+    text-align: center;
+  }
+
+  .section:after {
+    content: "";
+    border: solid;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(45deg);
+    @apply border-neutral-500;
+  }
+
+  @keyframes bounce {
+    50% {
+      transform: translateY(-30%);
+    }
+  }
+</style>

@@ -4,19 +4,28 @@
 
 @layer base {
   :root {
-    --color-flag-green: 24 163 0;
+    --color-flag-green: 20 155 0;
     --color-flag-gold: 214 171 21;
     --color-flag-red: 235 64 52;
 
     --color-primary: 179 140 9;
     --color-primary-hc: 110 85 5; /* high contrast */
     --color-primary-lc: 255 225 60; /* low contrast */
+
+    --header-height: 42px;
   }
 
   :root[class~="dark"] {
     --color-primary: 204 163 22;
     --color-primary-hc: 255 204 0;
     --color-primary-lc: 92 69 4;
+    --color-flag-green: 30 175 0;
+  }
+
+  @media (min-width: 640px) {
+    :root {
+      --header-height: 48px;
+    }
   }
 
   html,

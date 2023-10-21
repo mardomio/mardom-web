@@ -30,6 +30,9 @@ module.exports = {
         "primary-hc": "rgb(var(--color-primary-hc) / <alpha-value>)",
         "primary-lc": "rgb(var(--color-primary-lc) / <alpha-value>)",
       },
+      brightness: {
+        60: ".60",
+      },
     },
   },
   plugins: [
