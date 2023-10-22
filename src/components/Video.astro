@@ -1,26 +1,27 @@
 ---
-import { twMerge } from "tailwind-merge";
 export interface Props {
   src: string;
-  cover?: boolean;
-  class?: string;
+  portrait?: boolean;
 }
 
-const { src, cover, class: className } = Astro.props;
+const { src, portrait } = Astro.props;
 ---
 
-<video
-  src={src}
-  class={twMerge(
-    "simple-video w-full h-full",
-    cover && "object-cover sm:object-contain",
-    className,
-  )}
-  loop
-  muted
-  autoplay
->
-</video>
+<div class:list={["relative flex items-center justify-center", portrait ? "h-full" : "w-full"]}>
+  <video
+    src={src}
+    class:list={"simple-video object-contain max-h-full max-w-full"}
+    loop
+    muted
+    autoplay
+  >
+  </video>
+  <div
+    class="simple-video-muted text-sm absolute bottom-2 bg-neutral-950 text-neutral-50 px-2 py-1 rounded-md opacity-80"
+  >
+    روی ویدئو بزن تا صدا پخش بشه
+  </div>
+</div>
 
 <script>
   const videos = document.querySelectorAll<HTMLVideoElement>("video.simple-video");
@@ -95,5 +96,17 @@ const { src, cover, class: className } = Astro.props;
 <style>
   .shadow-filter {
     filter: drop-shadow(6px 10px 4px rgb(0 0 0 / 0.6));
+  }
+
+  .simple-video-muted {
+    animation: hideAnimation 0.3s ease-in 2.5s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes hideAnimation {
+    to {
+      visibility: hidden;
+      opacity: 0;
+    }
   }
 </style>

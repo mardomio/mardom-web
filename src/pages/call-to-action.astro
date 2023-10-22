@@ -6,7 +6,7 @@ import PageLayout from "@src/layouts/PageLayout.astro";
 
 <PageLayout title="فراخوان" class="p-0">
   <div class="slider">
-    <div class="slide slide-full">
+    <div class="slide slide-full !justify-between">
       <div class="px-5 pt-5 text-center">
         <div>تا حالا فکر کردی اگر متحد بشیم چی میشه؟</div>
         <div>با یه پلن درست حسابی البته.</div>
@@ -43,8 +43,8 @@ import PageLayout from "@src/layouts/PageLayout.astro";
       </div>
     </div>
 
-    <div class="slide slide-full">
-      <Video src="/video/app-action-ready.webm" />
+    <div class="slide !p-3">
+      <Video src="/video/app-action-ready.webm" portrait />
     </div>
 
     <div class="slide">
@@ -64,23 +64,17 @@ import PageLayout from "@src/layouts/PageLayout.astro";
       <div class="flex flex-col max-h-[600px] text-center justify-between gap-4">
         <div class="p-6">کره‌ی شمالی قدرت نظامی خودش رو به رخ کشورهای خارجی کشید.</div>
         <Video src="/video/military-parade.mp4" />
-        <div class="p-6">ولی از اون مهم‌تر، نشون دادن قدرت خودشون به خودشون بود.</div>
+        <div class="p-6">این باعث می‌شه بقیه اونا رو جدی بگیرن.</div>
       </div>
     </div>
 
     <div class="slide">
-      <div>
-        رژه‌ی کره شمالی باعث نمی‌شه اونا کره‌ی جنوبی رو فتح کنن. ولی حس خودشون رو نسبت به خودشون
-        بهبود می‌ده.
-      </div>
-      <div>
-        و اعلام آمادگی هم باعث نمی‌شه انقلاب بشه، ولی ما انقلابی‌های دو آتیشه باید دست به کار بشیم
-        تا انگیزه و امید به انقلاب رو هم برای خودمون و هم برای گروه ساکت بالا ببریم.
-      </div>
+      <div>و ما هم اگر می‌خوایم کشورهای خارجی و گروه ساکت/خاکستری جامعه انقلاب رو جدی بگیرن،</div>
+      <div>باید اول باهم متحد بشیم و فعالیت‌های سازماندهی شده انجام بدیم.</div>
     </div>
 
     <div class="slide slide-full">
-      <Video src="/video/park-segregation.mp4" cover />
+      <Video src="/video/park-segregation.mp4" portrait />
     </div>
 
     <div class="slide slide-full">
@@ -91,8 +85,11 @@ import PageLayout from "@src/layouts/PageLayout.astro";
         </div>
         <Video src="/video/students-tearing-down.mp4" />
         <div class="p-6">
-          فقط کافیه ما انقلابی‌های دو آتیشه یه کاری رو به طور متحد شروع کنیم، جو سریع تغییر خواهد
-          کرد و بقیه هم همراه می‌شن.
+          <div>
+            فقط کافیه ما انقلابی‌های دو آتیشه یه کاری رو به طور متحد شروع کنیم، جو سریع تغییر خواهد
+            کرد و بقیه هم همراه می‌شن.
+          </div>
+          <div class="text-sm opacity-75">(به شرطی که با برنامه ریزی باشه)</div>
         </div>
       </div>
     </div>
@@ -104,7 +101,7 @@ import PageLayout from "@src/layouts/PageLayout.astro";
     </div>
 
     <div class="slide slide-full">
-      <Video src="/video/water-atm.mp4" cover />
+      <Video src="/video/water-atm.mp4" portrait />
     </div>
 
     <div class="slide">
