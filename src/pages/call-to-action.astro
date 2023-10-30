@@ -169,11 +169,6 @@ import PageLayout from "@src/layouts/PageLayout.astro";
 <script>
   import confetti from "canvas-confetti";
 
-  // App height is like 100vh but mobile minus address
-  const appHeight = () =>
-    document.documentElement.style.setProperty("--app-height", `${window.innerHeight}px`);
-  window.addEventListener("resize", appHeight);
-  appHeight();
   document.querySelector<HTMLDivElement>(".slider")!.scrollTop = 0;
 
   // Start counter animation when in view
@@ -302,42 +297,6 @@ import PageLayout from "@src/layouts/PageLayout.astro";
 </script>
 
 <style>
-  .slider {
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-    height: calc(var(--app-height) - var(--header-height));
-  }
-
-  .slide {
-    height: 100%;
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-    @apply flex flex-col justify-center gap-5 p-6 overflow-hidden text-[18px] sm:text-[22px];
-  }
-
-  .slide-full {
-    @apply p-0 sm:p-6;
-  }
-
-  /* Make body scrollable on desktop */
-  @media (min-width: 700px) {
-    .slider {
-      height: auto;
-      overflow: hidden;
-      scroll-snap-type: none;
-      display: contents;
-    }
-
-    html {
-      scroll-snap-type: y proximity;
-      scroll-padding-top: var(--header-height);
-    }
-
-    .slide {
-      height: calc(var(--app-height) - var(--header-height));
-    }
-  }
-
   /* Counter */
   @property --num {
     syntax: "<integer>";

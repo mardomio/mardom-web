@@ -1,0 +1,23 @@
+---
+import Card from "@src/components/Card.astro";
+import PageLayout from "@src/layouts/PageLayout.astro";
+
+import { getCollection } from "astro:content";
+const posts = await getCollection("common-sense");
+---
+
+<PageLayout title="عقل سلیم" class="gap-2 max-w-screen-sm px-2">
+  <h1 class="text-3xl font-medium mb-4 ms-3 mt-2">عقل سلیم</h1>
+  {
+    posts.map((p) => (
+      <Card href={`/common-sense/${p.slug}`} title={p.data.title} body={p.data.desc} />
+    ))
+  }
+  <!-- <Card href="/under-construction" title="جنگ داخلی" body="چطور از سوریه شدن ایران جلوگیری کنیم؟" />
+  <Card
+    href="/under-construction"
+    title="خامنه‌ای"
+    body="مسائل مرتبط به رهبر فعلی جمهوری اسلامی."
+  />
+  <Card href="/under-construction" title="اقتصاد" body="بررسی رابطه‌ی اقتصاد و انقلاب مردمی." /> -->
+</PageLayout>

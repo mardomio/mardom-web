@@ -42,6 +42,10 @@
   a {
     @apply text-primary hover:underline underline-offset-8 duration-300;
   }
+
+  .prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    quotes: "«" "»" !important;
+  }
 }
 
 @layer components {
@@ -60,6 +64,42 @@
     user-select: none;
     -moz-font-feature-settings: "liga";
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  .slider {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: calc(var(--app-height) - var(--header-height));
+  }
+
+  .slide {
+    height: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    @apply flex flex-col justify-center gap-5 p-6 overflow-hidden text-[18px] sm:text-[22px];
+  }
+
+  .slide-full {
+    @apply p-0 sm:p-6;
+  }
+
+  /* Make body scrollable on desktop (for slider) */
+  @media (min-width: 700px) {
+    .slider {
+      height: auto;
+      overflow: hidden;
+      scroll-snap-type: none;
+      display: contents;
+    }
+
+    html {
+      scroll-snap-type: y proximity;
+      scroll-padding-top: var(--header-height);
+    }
+
+    .slide {
+      height: calc(var(--app-height) - var(--header-height));
+    }
   }
 }
 

@@ -8,17 +8,17 @@ const { title } = Astro.props;
 import "@src/styles/base.css";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fa" dir="rtl">
   <head>
     <!-- Add theme class in head to avoid FOUC -->
     <script is:inline>
-      const isDefaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      const hasOverwrite = localStorage.getItem("dark-theme") !== null;
-      const isOverwriteDark = localStorage.getItem("dark-theme") === "true";
-      if (isOverwriteDark || (!hasOverwrite && isDefaultDark)) {
-        document.documentElement.classList.add("dark");
-      }
+    const isDefaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const hasOverwrite = localStorage.getItem("dark-theme") !== null;
+    const isOverwriteDark = localStorage.getItem("dark-theme") === "true";
+    if (isOverwriteDark || (!hasOverwrite && isDefaultDark)) {
+      document.documentElement.classList.add("dark");
+    }
     </script>
 
     <meta charset="UTF-8" />
@@ -30,3 +30,11 @@ import "@src/styles/base.css";
     <slot />
   </body>
 </html>
+
+<script>
+  // App height is like 100vh but minus mobile address bar
+  const appHeight = () =>
+    document.documentElement.style.setProperty("--app-height", `${window.innerHeight}px`);
+  window.addEventListener("resize", appHeight);
+  appHeight();
+</script>
