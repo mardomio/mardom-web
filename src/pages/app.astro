@@ -3,7 +3,8 @@ import PageLayout from "@src/layouts/PageLayout.astro";
 ---
 
 <PageLayout title="اپلیکیشن مردم" class="items-center">
-  <div class="flex flex-col items-center mt-[40%]">
+  <div class="top-spacing"></div>
+  <div class="flex flex-col items-center mt-1">
     <img src="/favicon.png" width="90" />
     <h1 class="font-medium text-2xl sm:text-3xl mt-4">اپلیکیشن مردم</h1>
     <p class="text-lg mt-2">مخصوص انقلاب مردمی ایران</p>
@@ -191,3 +192,9 @@ import PageLayout from "@src/layouts/PageLayout.astro";
     </p>
   </div>
 </PageLayout>
+
+<style>
+  .top-spacing {
+    height: calc(var(--app-height) / 3 - 180px);
+  }
+</style>
